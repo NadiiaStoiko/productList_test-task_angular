@@ -1,0 +1,41 @@
+.left {
+  margin: 0 auto;
+  width: 7%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right{
+  padding: 0 10px;
+}
+
+mat-cell {
+  font-size: 10px;
+}
+
+.rightSideProperties {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  justify-content: space-between ;
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.blocks {
+  width: 50%;
+  background: lightblue;
+  padding: 30px 20px;
+  border: 1px black solid;
+}

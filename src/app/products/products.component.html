@@ -1,0 +1,66 @@
+<div class="container">
+    <div class = "blocks">
+      <cdk-table [dataSource]="dataSource" class="mat-elevation-z8 left">
+        <cdk-virtual-scroll-viewport itemSize="50">
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element" (click)="makeItemActive(element.ProductId)"> {{element.ProductCode}} </mat-cell>
+          </ng-container>
+        </cdk-virtual-scroll-viewport>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </cdk-table>
+    </div>
+
+    <div class="blocks" *ngIf="isOpenPropertiesBlock">
+      <div class="rightSideProperties">
+        <mat-table *ngIf="isActiveItem" [dataSource]="dataSorsceRight" class="mat-elevation-z8 right">
+          <ng-container matColumnDef="ColorIdx">
+            <mat-header-cell *matHeaderCellDef> ColorIdx </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.ColorIdx}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="ProductDescription">
+            <mat-header-cell *matHeaderCellDef> ProductDescription </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.ProductDescription}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Price">
+            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Price}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="VoDatum">
+            <mat-header-cell *matHeaderCellDef> VoDatum </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.VoDatum}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="IsHeavy">
+            <mat-header-cell *matHeaderCellDef> IsHeavy </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.IsHeavy}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="RestrictedLands">
+            <mat-header-cell *matHeaderCellDef> RestrictedLands </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.RestrictedLands}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="IsFsk">
+            <mat-header-cell *matHeaderCellDef> IsFsk </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.IsFsk}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="IsOrdergruppeC">
+            <mat-header-cell *matHeaderCellDef> IsOrdergruppeC </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.IsOrdergruppeC}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumnsRight"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumnsRight;"></mat-row>
+        </mat-table>
+        <div class="button-wrapper">
+          <button mat-stroked-button color="primary"(click)="closePropertiesBlock()">Close</button>
+        </div>
+      </div>
+   </div>
+</div>
